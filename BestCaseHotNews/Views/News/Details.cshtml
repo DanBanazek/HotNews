@@ -1,0 +1,64 @@
+﻿@model BestCaseHotNews.Models.Post
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.headline);
+}
+
+<h2> @Html.DisplayFor(model => model.Product.productName) - @Html.DisplayFor(model => model.headline)</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Product.productName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Product.productName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.categoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.categoryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.userName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.userName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.headline)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.headline)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.datePosted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datePosted)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lastUpdate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastUpdate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.postID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model BestCaseHotNews.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2> @Html.DisplayFor(model => model.productName) News</h2>
+<fieldset>
+    
+    <legend>Archives</legend>
+
+    <!--<div class="display-label">
+         @Html.DisplayNameFor(model => model.productName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.productName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.dateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.dateCreated)
+    </div>-->
+    <div class="display-field">
+        <!--<h2>Related Posts</h2>-->
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Headline</th>
+                
+            </tr>
+            @foreach (var item in Model.Posts.OrderByDescending(i=>i.datePosted).ToList())
+            {
+                <tr>
+                    <td>@item.datePosted.ToShortDateString()</td>
+                    <td>@Html.DisplayFor(modelItem=>item.Category.categoryName) </td>
+                    <td>@Html.ActionLink(item.headline, "../News/Details", new { id=item.postID })</td>
+                    
+                </tr>
+            }
+        </table>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.productID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,68 @@
+﻿@model BestCaseHotNews.Models.Post
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Product.productName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Product.productName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.categoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.categoryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.userName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.userName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.headline)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.headline)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.datePosted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datePosted)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lastUpdate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastUpdate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
