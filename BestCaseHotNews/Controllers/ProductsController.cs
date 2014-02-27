@@ -37,7 +37,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Products/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +48,7 @@ namespace BestCaseHotNews.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
@@ -62,7 +63,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Products/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Product product = db.Products.Find(id);
@@ -75,7 +76,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /Products/Edit/5
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Product product)
@@ -91,7 +92,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Products/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Product product = db.Products.Find(id);
@@ -104,7 +105,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /Products/Delete/5
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

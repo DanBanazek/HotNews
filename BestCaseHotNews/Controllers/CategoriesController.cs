@@ -37,7 +37,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Categories/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,7 +45,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /Categories/Create
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Category category)
@@ -62,7 +62,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Categories/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Category category = db.Categories.Find(id);
@@ -75,7 +75,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /Categories/Edit/5
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Category category)
@@ -91,7 +91,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /Categories/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Category category = db.Categories.Find(id);
@@ -104,7 +104,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /Categories/Delete/5
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

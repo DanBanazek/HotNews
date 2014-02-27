@@ -38,7 +38,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Create
-     
+        [Authorize]
         public ActionResult Create()
         {
              
@@ -53,6 +53,7 @@ namespace BestCaseHotNews.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(Post post)
         {
             post.userID = (from u in db.Users where u.userName == post.userName select u.userID).FirstOrDefault();
@@ -71,7 +72,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -87,7 +88,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /News/Edit/5
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Post post)
@@ -107,7 +108,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Post post = db.Posts.Find(id);
@@ -120,7 +121,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // POST: /News/Delete/5
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
