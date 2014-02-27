@@ -35,7 +35,9 @@
             @Html.LabelFor(model => model.userID, "User")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("userID", String.Empty)
+            @*@Html.DropDownList("userID", String.Empty)*@
+            @Html.Label(@User.Identity.Name)
+            @Html.HiddenFor(model => model.userName, new { @Value =User.Identity.Name})
             @Html.ValidationMessageFor(model => model.userID)
         </div>
 

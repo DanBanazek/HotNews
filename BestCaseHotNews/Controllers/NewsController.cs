@@ -38,7 +38,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Create
-
+     
         public ActionResult Create()
         {
              
@@ -92,6 +92,7 @@ namespace BestCaseHotNews.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Post post)
         {
+            post.userID = db.Users.Where(u => u.userName == post.userName).FirstOrDefault().userID;
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
