@@ -37,7 +37,8 @@
                             <li>@Html.ActionLink("Products", "Index", "Products")</li>
                             <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>             
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                         
                         </ul>
                     </nav>
                 </div>
@@ -54,6 +55,10 @@
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - Best Case, LLC</p>
                 </div>
+                @if(@User.IsInRole("Admin"))
+                            {
+                                <div class="float-right">@Html.ActionLink(" Manage Users", "Index", "Users")</div>
+                            }
             </div>
         </footer>
 

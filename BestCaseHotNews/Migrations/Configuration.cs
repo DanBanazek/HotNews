@@ -4,7 +4,9 @@ namespace BestCaseHotNews.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Security;
     using BestCaseHotNews.Models;
+    using WebMatrix.WebData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BestCaseHotNews.DAL.HotNewsContext>
     {
@@ -27,13 +29,13 @@ namespace BestCaseHotNews.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            //context.Users.AddOrUpdate(
-            //    u => u.userName,
-            //    new User { userName = "Staff", fullName = "Tech Worker", email = "bestcasestaff@bestcase.com",dateCreated = DateTime.Now },
-            //    new User { userName = "Dan B.", fullName = "Dan Banazek", email = "dbanazek@bestcase.com", dateCreated = DateTime.Now },
+            context.Users.AddOrUpdate(
+              u => u.fullName,
+                  new User { userName = "testUser", fullName = "Tech Worker", email = "bestcasestaff@bestcase.com",dateCreated = DateTime.Now },
+                  new User { userName = "Dan B", fullName = "Dan Banazek", email = "dbanazek@bestcase.com", dateCreated = DateTime.Now }
             //    new User { userName = "John G.", fullName = "John Gamalinda", email = "jgamalinda@bestcase.com", dateCreated = DateTime.Now }
-            //    );
-            //context.SaveChanges();
+               );
+            context.SaveChanges();
             context.Products.AddOrUpdate(
                 p => p.productName,
                 new Product { productName = "Best Case Bankruptcy", dateCreated = DateTime.Now },
@@ -62,6 +64,34 @@ namespace BestCaseHotNews.Migrations
             //    }
             //    );
             //context.SaveChanges();
+            SeedMembership();
+        }
+
+        private void SeedMembership()
+        {
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Users", "userID", "userName", true);
+            var roles = Roles.GetAllRoles();
+            if (!Roles.RoleExists("Admin"))
+            {
+                Roles.CreateRole("Admin");
+
+            }
+
+            if (!Roles.IsUserInRole("Dan B", "Admin"))
+                Roles.AddUserToRole("Dan B", "Admin");
+            
+            //MembershipUserCollection users = Membership.GetAllUsers(;
+            //throw new Exception("User count" + users.Count);
+            //if (Membership.GetUser("Dan B", false) != null)
+            //{
+            //    Roles.AddUserToRole("Dan B", "Admin");
+            //    throw new Exception("found user. should be adding role");
+                
+            //}
+            //else
+            //{
+            //    throw new Exception("user not found");
+            //}
         }
     }
 }

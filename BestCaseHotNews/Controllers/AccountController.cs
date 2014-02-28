@@ -75,12 +75,14 @@ namespace BestCaseHotNews.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
+            
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { fullname=model.fullName, email=model.email, dateCreated=DateTime.Now});
 
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

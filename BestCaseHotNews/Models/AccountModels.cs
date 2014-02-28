@@ -83,6 +83,7 @@ namespace BestCaseHotNews.Models
         [Display(Name = "Full name")]
         public string fullName { get; set; }
 
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string email { get; set; }

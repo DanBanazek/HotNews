@@ -9,6 +9,8 @@
 </hgroup>
 
 <section id="loginForm">
+    @if(!String.IsNullOrEmpty(@User.Identity.Name)){
+ <h2 class="message-error">You are not authorized to view this page</h2>}
 <h2>Use a local account to log in.</h2>
 @using (Html.BeginForm(new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
 {

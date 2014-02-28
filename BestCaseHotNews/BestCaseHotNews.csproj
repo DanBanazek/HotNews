@@ -186,6 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\HotNewsContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +215,14 @@
     <Compile Include="Migrations\201402262031376_catchup.cs" />
     <Compile Include="Migrations\201402262031376_catchup.Designer.cs">
       <DependentUpon>201402262031376_catchup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402272124125_UserAuthUpdates.cs" />
+    <Compile Include="Migrations\201402272124125_UserAuthUpdates.Designer.cs">
+      <DependentUpon>201402272124125_UserAuthUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402272143524_ModelCatchUp.cs" />
+    <Compile Include="Migrations\201402272143524_ModelCatchUp.Designer.cs">
+      <DependentUpon>201402272143524_ModelCatchUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -350,6 +359,11 @@
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,6 +389,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402262031376_catchup.resx">
       <DependentUpon>201402262031376_catchup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402272124125_UserAuthUpdates.resx">
+      <DependentUpon>201402272124125_UserAuthUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402272143524_ModelCatchUp.resx">
+      <DependentUpon>201402272143524_ModelCatchUp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

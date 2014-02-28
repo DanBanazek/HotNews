@@ -90,3 +90,5 @@ C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.Make
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.foobar.resources
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.catchup.resources
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.csprojResolveAssemblyReference.cache
+C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.UserAuthUpdates.resources
+C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.ModelCatchUp.resources
