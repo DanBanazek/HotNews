@@ -186,6 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\HotNewsContext.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -224,11 +225,20 @@
     <Compile Include="Migrations\201402272143524_ModelCatchUp.Designer.cs">
       <DependentUpon>201402272143524_ModelCatchUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403031356342_addtagstable.cs" />
+    <Compile Include="Migrations\201403031356342_addtagstable.Designer.cs">
+      <DependentUpon>201403031356342_addtagstable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403031616467_addedTagCollectionToPostModel.cs" />
+    <Compile Include="Migrations\201403031616467_addedTagCollectionToPostModel.Designer.cs">
+      <DependentUpon>201403031616467_addedTagCollectionToPostModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -364,6 +374,11 @@
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Tags\Index.cshtml" />
+    <Content Include="Views\Tags\Details.cshtml" />
+    <Content Include="Views\Tags\Create.cshtml" />
+    <Content Include="Views\Tags\Edit.cshtml" />
+    <Content Include="Views\Tags\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +410,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402272143524_ModelCatchUp.resx">
       <DependentUpon>201402272143524_ModelCatchUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403031356342_addtagstable.resx">
+      <DependentUpon>201403031356342_addtagstable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403031616467_addedTagCollectionToPostModel.resx">
+      <DependentUpon>201403031616467_addedTagCollectionToPostModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

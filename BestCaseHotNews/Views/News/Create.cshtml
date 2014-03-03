@@ -70,7 +70,13 @@
             @Html.EditorFor(model => model.lastUpdate)
             @Html.ValidationMessageFor(model => model.lastUpdate)
         </div>
-        
+        <div class="editor-field">
+        <label>Select or Add Tags for the Post</label>
+            @* @Html.DropDownListFor(model => model.UserID, new SelectList(ViewBag.DDLRoles, "UserID", "UserName", Model.UserID)) *@
+             @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.MultiSelectTags)
+            <p>Enter New tags separated by a comma</p>
+            @Html.TextBox("newTags", String.Empty)
+        </div>
         <p>
             <input type="submit" value="Create" />
         </p>

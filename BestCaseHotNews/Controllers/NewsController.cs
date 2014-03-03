@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using BestCaseHotNews.Models;
 using BestCaseHotNews.DAL;
+using System.Collections.ObjectModel;
 
 namespace BestCaseHotNews.Controllers
 {
@@ -14,12 +15,12 @@ namespace BestCaseHotNews.Controllers
     {
         private HotNewsContext db = new HotNewsContext();
 
+
         //
         // GET: /News/
-
         public ActionResult Index()
         {
-            var posts = db.Posts.Include(p => p.Product).Include(p => p.Category).Include(p => p.User);
+            var posts = db.Posts.Include(p => p.Product).Include(p => p.Category).Include(p => p.User).Include(p=>p.Tags);
             return View(posts.ToList());
         }
 
@@ -41,9 +42,10 @@ namespace BestCaseHotNews.Controllers
         [Authorize]
         public ActionResult Create()
         {
-             
+            
+            ViewBag.MultiSelectTags = new MultiSelectList(db.Tags, "tagID", "name");
             ViewBag.productID = new SelectList(db.Products, "productID", "productName");
-            ViewBag.categoryID = new SelectList(db.Categories, "categoryID", "categoryName");
+            ViewBag.categoryID = new MultiSelectList(db.Categories, "categoryID", "categoryName");
             ViewBag.userID = new SelectList(db.Users, "userID", "userName");
             return View();
         }
@@ -54,11 +56,14 @@ namespace BestCaseHotNews.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create(Post post)
+        public ActionResult Create(Post post, int[] tagsPicked, string newTags)
         {
             post.userID = (from u in db.Users where u.userName == post.userName select u.userID).FirstOrDefault();
             if (ModelState.IsValid)
             {
+                if (post.Tags == null) { post.Tags = new List<Tag>(); }
+                post.Tags = BuildTagListForPost(tagsPicked, newTags);
+                
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -68,6 +73,42 @@ namespace BestCaseHotNews.Controllers
             ViewBag.categoryID = new SelectList(db.Categories, "categoryID", "categoryName", post.categoryID);
             ViewBag.userID = new SelectList(db.Users, "userID", "userName", post.userID);
             return View(post);
+        }
+
+        private ICollection<Tag> BuildTagListForPost(int[] tagsPicked, string newTags)
+        {
+            List<Tag> postTags = new List<Tag>();
+            if (tagsPicked != null)
+            {
+                foreach (int t in tagsPicked)
+                {
+                    var tag = db.Tags.Find(t);
+                    postTags.Add(tag);
+                }
+            }
+            if(!string.IsNullOrEmpty(newTags))
+            {
+                string[] splitTags = newTags.Split(',');
+                //post.userID = db.Users.Where(u => u.userName == post.userName).FirstOrDefault().userID;
+                foreach (string s in splitTags)
+                {
+                    
+                    Tag tag = new Tag();
+                    //var existing = db.Tags.Where(t => t.name == s || t.name == s.ToLower() || t.name == s.ToUpper()).FirstOrDefault();
+                    var existing = db.Tags.Where(t => t.name.ToLower() == s.ToLower().Trim()).FirstOrDefault();
+                    if(existing !=null)
+                        tag=existing;
+                    else
+                    {
+                        tag=new Tag {name=s.Trim()};
+                        db.Tags.Add(tag);
+                        db.SaveChanges();
+                    }
+                    postTags.Add(tag);
+
+                }
+            }
+            return postTags;
         }
 
         //
@@ -80,6 +121,14 @@ namespace BestCaseHotNews.Controllers
             {
                 return HttpNotFound();
             }
+            var tags1 = db.Tags;
+            var tags2 = new List<string>();
+            foreach (Tag t in post.Tags)
+            {
+                tags2.Add(t.tagID.ToString());
+            }
+            var tags3 = new MultiSelectList(db.Tags, "tagID", "name", tags2);
+            ViewBag.tagsForList = tags3;
             ViewBag.productID = new SelectList(db.Products, "productID", "productName", post.productID);
             ViewBag.categoryID = new SelectList(db.Categories, "categoryID", "categoryName", post.categoryID);
             ViewBag.userID = new SelectList(db.Users, "userID", "userName", post.userID);
@@ -91,9 +140,10 @@ namespace BestCaseHotNews.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Post post)
+        public ActionResult Edit(Post post, int[] tagsPicked)
         {
             post.userID = db.Users.Where(u => u.userName == post.userName).FirstOrDefault().userID;
+            //List<SelectListItem> tagList = BuildUpdateTagList(post.Tags);
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
@@ -105,6 +155,23 @@ namespace BestCaseHotNews.Controllers
             ViewBag.userID = new SelectList(db.Users, "userID", "userName", post.userID);
             return View(post);
         }
+
+        //private List<SelectListItem> BuildUpdateTagList(ICollection<Tag> collection)
+        //{
+        //    bool compareToExisting = false;
+        //    List<SelectListItem> finalList = new List<SelectListItem>();
+        //    if (collection.Count != null && collection.Count > 0)
+        //    {
+        //        compareToExisting = true;
+        //    }
+        //    foreach (Tag t in db.Tags)
+        //    {
+        //        SelectListItem sli = new SelectListItem { Text = t.name, Value = t.tagID.ToString() };
+        //        if (compareToExisting && collection.Contains(t)) { sli.Selected = true; }
+        //        finalList.Add(sli);
+        //    }
+        //    return finalList;
+        //}
 
         //
         // GET: /News/Delete/5

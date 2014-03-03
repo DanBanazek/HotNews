@@ -56,9 +56,9 @@
                     <p>&copy; @DateTime.Now.Year - Best Case, LLC</p>
                 </div>
                 @if(@User.IsInRole("Admin"))
-                            {
+                  {
                                 <div class="float-right">@Html.ActionLink(" Manage Users", "Index", "Users")</div>
-                            }
+                  }
             </div>
         </footer>
 

@@ -57,6 +57,17 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.lastUpdate)
     </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Tags)
+    </div>
+    <div class="display-field">
+       <ul>
+           @foreach (BestCaseHotNews.Models.Tag t in Model.Tags)
+           {
+               <li>@Html.ActionLink(t.name,"../Tags/Details",new{id=t.tagID})</li>
+           }
+       </ul>
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.postID }) |

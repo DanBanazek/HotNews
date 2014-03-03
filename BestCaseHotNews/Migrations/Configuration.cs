@@ -50,6 +50,13 @@ namespace BestCaseHotNews.Migrations
                 new Category { categoryName = "Bug Fix", dateAdded = DateTime.Now }
                 );
             context.SaveChanges();
+
+            context.Tags.AddOrUpdate(
+                t => t.name,
+                    new Tag { name = "MIE" },
+                    new Tag { name = "ECFExpress 2.0" },
+                    new Tag {name="OneTouch 2.0"}
+            );
             //context.Posts.AddOrUpdate(
             //    p => p.headline,
             //    new Post

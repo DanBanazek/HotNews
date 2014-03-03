@@ -92,3 +92,5 @@ C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.catc
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.csprojResolveAssemblyReference.cache
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.UserAuthUpdates.resources
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.ModelCatchUp.resources
+C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.addtagstable.resources
+C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.addedTagCollectionToPostModel.resources
