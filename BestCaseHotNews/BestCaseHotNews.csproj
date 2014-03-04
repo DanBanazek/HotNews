@@ -233,12 +233,17 @@
     <Compile Include="Migrations\201403031616467_addedTagCollectionToPostModel.Designer.cs">
       <DependentUpon>201403031616467_addedTagCollectionToPostModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403041948502_catchup1.cs" />
+    <Compile Include="Migrations\201403041948502_catchup1.Designer.cs">
+      <DependentUpon>201403041948502_catchup1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TagPosts.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -416,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403031616467_addedTagCollectionToPostModel.resx">
       <DependentUpon>201403031616467_addedTagCollectionToPostModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403041948502_catchup1.resx">
+      <DependentUpon>201403041948502_catchup1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

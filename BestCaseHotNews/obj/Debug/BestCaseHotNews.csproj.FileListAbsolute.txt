@@ -94,3 +94,4 @@ C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.User
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.ModelCatchUp.resources
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.addtagstable.resources
 C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.addedTagCollectionToPostModel.resources
+C:\DEV\BestCaseHotNews\BestCaseHotNews\obj\Debug\BestCaseHotNews.Migrations.catchup1.resources

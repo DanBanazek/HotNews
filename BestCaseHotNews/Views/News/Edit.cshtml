@@ -78,6 +78,7 @@
              @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.tagsForList)
             <p>New tags should be separated by a comma</p>
             @Html.TextBox("newTags", String.Empty)
+            @Html.Hidden("originalTags", (String)ViewBag.existingTags)
         </div>
         <p>
             <input type="submit" value="Save" />
