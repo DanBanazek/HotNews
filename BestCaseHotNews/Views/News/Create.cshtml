@@ -4,7 +4,7 @@
     ViewBag.Title = "Add New Article";
 }
 
-<h2>Create</h2>
+<h2>Create a New Post</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -72,13 +72,16 @@
         </div>
         <div class="editor-field">
         <label>Select or Add Tags for the Post</label>
+            <div id="userSelectedTags">
+
+            </div>
             @* @Html.DropDownListFor(model => model.UserID, new SelectList(ViewBag.DDLRoles, "UserID", "UserName", Model.UserID)) *@
              @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.MultiSelectTags)
-            <p>Enter New tags separated by a comma</p>
-            @Html.TextBox("newTags", String.Empty)
+            <p>Enter New tags separated by a comma: @Html.TextBox("newTags", String.Empty)</p>
+            
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Add a New Post" />
         </p>
     </fieldset>
 }

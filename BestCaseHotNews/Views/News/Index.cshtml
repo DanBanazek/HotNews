@@ -10,7 +10,8 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+@Html.Partial("~/Views/Shared/_Posts.cshtml", Model)
+@*<table>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Product.productName)
@@ -67,4 +68,4 @@
     </tr>
 }
 
-</table>
+</table>*@

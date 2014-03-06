@@ -21,7 +21,7 @@ namespace BestCaseHotNews.Controllers
         public ActionResult Index()
         {
             var posts = db.Posts.Include(p => p.Product).Include(p => p.Category).Include(p => p.User).Include(p=>p.Tags);
-            return View(posts.ToList());
+            return View(posts.ToList().OrderByDescending(p=>p.datePosted));
         }
 
         //
@@ -39,7 +39,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Create
-        [Authorize]
+       // [Authorize]
         public ActionResult Create()
         {
             
@@ -164,7 +164,7 @@ namespace BestCaseHotNews.Controllers
             updatePost.body = post.body;
             updatePost.datePosted = post.datePosted;
             updatePost.lastUpdate= DateTime.Now;
-
+            
             if (ModelState.IsValid)
             {
 

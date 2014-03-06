@@ -10,16 +10,12 @@
                 <h1>@ViewBag.Title.</h1>
                 <h2>@ViewBag.Message</h2>
             </hgroup>
+
             </div>
     </section>
-    <div id="recentHeadlines" class="display-field">
-    <ul>
-    @foreach (var item in Model)    
-    {
-         <li>  @Html.ActionLink(item.headline, "../News/Details", new { id=item.postID })</li>
-    }
-    </ul>
-   <p> @Html.ActionLink("Create New", "../News/Create")
-</p>
-    </div>
+    
 }
+<h2>Recent News</h2>
+<p> @Html.ActionLink("Add Post", "../News/Create")</p>
+
+@Html.Partial("~/Views/Shared/_Posts.cshtml", Model)

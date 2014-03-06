@@ -11,12 +11,15 @@
         
          @Scripts.Render("~/bundles/jquery")
        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/myjquery")
+        @*<script src="../scripts/myjquery.js" type="text/javascript"></script>*@
         <script type="text/javascript">
             $(function () {
                
                 if (!Modernizr.inputtypes.datetime) {
                     $("input[type='datetime']").datepicker();
                 }
+               
             });
         </script>
     </head>

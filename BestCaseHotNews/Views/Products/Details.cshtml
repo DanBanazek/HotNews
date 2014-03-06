@@ -1,12 +1,18 @@
 ﻿@model BestCaseHotNews.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Product Details";
 }
 
 
 <h2> @Html.DisplayFor(model => model.productName) News</h2>
-<fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.productID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@Html.Partial("~/Views/Shared/_Posts.cshtml", Model.Posts)
+
+@*<fieldset>
     
     <legend>Archives</legend>
 
@@ -23,7 +29,8 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.dateCreated)
     </div>-->
-    <div class="display-field">
+     
+   <div class="display-field">
         <!--<h2>Related Posts</h2>-->
         <table>
             <tr>
@@ -44,7 +51,5 @@
         </table>
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.productID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    *@
