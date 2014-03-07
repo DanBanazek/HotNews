@@ -586,7 +586,11 @@ td {
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
-
+/***************************
+*                          *
+* Dan B Classes            *
+*                          *
+****************************/
 /*Headlines*/
 #recentHeadlines{
      padding:0;
@@ -637,7 +641,13 @@ tr.pager td {
     text-align:right;
 }
  
-
+/*multi-select box*/
+.multiSelect{
+    min-height:200px;
+    min-width:100px;
+    margin:10px;
+    display:none;
+}
 /********************
 *   Mobile Styles   *
 ********************/

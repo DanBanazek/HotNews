@@ -39,7 +39,7 @@ namespace BestCaseHotNews.Controllers
 
         //
         // GET: /News/Create
-       // [Authorize]
+       [Authorize]
         public ActionResult Create()
         {
             

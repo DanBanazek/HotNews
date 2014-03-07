@@ -75,8 +75,9 @@
             <div id="userSelectedTags">
 
             </div>
+            <div>@Html.TextBox("tagsTB",String.Empty) <button id="tagAddBtn" onclick="return false;">+</button></div> 
             @* @Html.DropDownListFor(model => model.UserID, new SelectList(ViewBag.DDLRoles, "UserID", "UserName", Model.UserID)) *@
-             @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.MultiSelectTags)
+             @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.MultiSelectTags, new{ @class="multiSelect"})
             <p>Enter New tags separated by a comma: @Html.TextBox("newTags", String.Empty)</p>
             
         </div>
