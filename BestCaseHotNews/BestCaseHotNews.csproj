@@ -386,6 +386,7 @@
     <Content Include="Views\Tags\Edit.cshtml" />
     <Content Include="Views\Tags\Delete.cshtml" />
     <Content Include="Views\Shared\_Posts.cshtml" />
+    <Content Include="Views\Shared\_EditCreatePostsForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

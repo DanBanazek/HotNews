@@ -608,6 +608,14 @@ tr.pager td {
             padding: 2px 10px 2px 20px;
             margin-bottom:10px;
         }
+
+ 
+ #activeTags li{
+     display: inline;
+     list-style: none;
+         margin-left:10px;
+         
+ }
  /*#recentHeadlines a {
      text-decoration: none;
  }

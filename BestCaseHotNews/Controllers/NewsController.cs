@@ -138,7 +138,7 @@ namespace BestCaseHotNews.Controllers
             }
             var tags3 = new MultiSelectList(db.Tags, "tagID", "name", tags2);
             ViewBag.existingTags = currentTags;
-            ViewBag.tagsForList = tags3;
+            ViewBag.MultiSelectTags = tags3;
             ViewBag.productID = new SelectList(db.Products, "productID", "productName", post.productID);
             ViewBag.categoryID = new SelectList(db.Categories, "categoryID", "categoryName", post.categoryID);
             ViewBag.userID = new SelectList(db.Users, "userID", "userName", post.userID);

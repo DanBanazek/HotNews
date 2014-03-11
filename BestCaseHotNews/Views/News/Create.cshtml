@@ -12,8 +12,7 @@
 
     <fieldset>
         <legend>Post</legend>
-
-        <div class="editor-label">
+       @* <div class="editor-label">
             @Html.LabelFor(model => model.productID, "Product")
         </div>
         <div class="editor-field">
@@ -33,7 +32,6 @@
             @Html.LabelFor(model => model.userID, "User")
         </div>
         <div class="editor-field">
-           @* @Html.DropDownList("userID", String.Empty)*@
             @Html.Label(@User.Identity.Name)
             @Html.HiddenFor(model => model.userName, new { @Value =User.Identity.Name})
             @Html.ValidationMessageFor(model => model.userName)
@@ -76,11 +74,11 @@
 
             </div>
             <div>@Html.TextBox("tagsTB",String.Empty) <button id="tagAddBtn" onclick="return false;">+</button></div> 
-            @* @Html.DropDownListFor(model => model.UserID, new SelectList(ViewBag.DDLRoles, "UserID", "UserName", Model.UserID)) *@
              @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.MultiSelectTags, new{ @class="multiSelect"})
             <p>Enter New tags separated by a comma: @Html.TextBox("newTags", String.Empty)</p>
             
-        </div>
+        </div>*@
+        @Html.Partial("~/Views/Shared/_EditCreatePostsForm.cshtml", Model)
         <p>
             <input type="submit" value="Add a New Post" />
         </p>

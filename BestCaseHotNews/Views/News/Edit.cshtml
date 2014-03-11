@@ -14,8 +14,8 @@
         <legend>Post</legend>
 
         @Html.HiddenFor(model => model.postID)
-
-        <div class="editor-label">
+        @Html.Partial("~/Views/Shared/_EditCreatePostsForm.cshtml", Model)
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.productID, "Product")
         </div>
         <div class="editor-field">
@@ -35,7 +35,6 @@
             @Html.LabelFor(model => model.userID, "User")
         </div>
         <div class="editor-field">
-            @*@Html.DropDownList("userID", String.Empty)*@
             @Html.Label(@User.Identity.Name)
             @Html.HiddenFor(model => model.userName, new { @Value =User.Identity.Name})
             @Html.ValidationMessageFor(model => model.userID)
@@ -74,12 +73,11 @@
         </div>
         <div>
         <label>Select or Add Tags for the Post</label>
-            @* @Html.DropDownListFor(model => model.UserID, new SelectList(ViewBag.DDLRoles, "UserID", "UserName", Model.UserID)) *@
-             @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.tagsForList)
+           @Html.ListBox("tagsPicked", (MultiSelectList)ViewBag.tagsForList)
             <p>New tags should be separated by a comma</p>
             @Html.TextBox("newTags", String.Empty)
             @Html.Hidden("originalTags", (String)ViewBag.existingTags)
-        </div>
+        </div>*@
         <p>
             <input type="submit" value="Save" />
         </p>
