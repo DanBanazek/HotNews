@@ -80,3 +80,5 @@ C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\bin\Debug\zh-Hant\System.Spatial.re
 C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\obj\Debug\BestCaseHotNews.Tests.csprojResolveAssemblyReference.cache
 C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\obj\Debug\BestCaseHotNews.Tests.dll
 C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\obj\Debug\BestCaseHotNews.Tests.pdb
+C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\DEV\BestCaseHotNews\BestCaseHotNews.Tests\bin\Debug\EntityFramework.SqlServer.xml

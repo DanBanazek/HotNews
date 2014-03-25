@@ -4,12 +4,32 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!--<h2>Index</h2>-->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+
+<div id="productTabs">
+     <p>
+    @Html.ActionLink("Add New Post", "Create")
 </p>
-<table>
+    <ul>
+    @foreach (var prod in Model)
+    {
+      <li><a href="#@Html.DisplayFor(product=>prod.productID)">@Html.DisplayFor(product=>prod.productName)</a></li>   
+    }
+</ul>
+      @foreach (var prod in Model)
+      {
+          <div id="@Html.DisplayFor(product=>prod.productID)">
+              <h2>@Html.DisplayFor(product=>prod.productName)</h2>
+              <p>@Html.ActionLink("Edit", "Edit", new { id=prod.productID }) |
+            @Html.ActionLink("Details", "Details", new { id=prod.productID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=prod.productID })</p>
+            @Html.Partial("~/Views/Shared/_Posts.cshtml", prod.Posts)  
+          </div>
+          
+      }
+</div>
+@*<table>
     <tr>
         <th>
             <!--@Html.DisplayNameFor(model => model.productName)-->
@@ -38,4 +58,4 @@
     </tr>
 }
 
-</table>
+</table>*@
